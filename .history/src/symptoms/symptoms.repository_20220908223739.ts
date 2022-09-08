@@ -9,7 +9,7 @@ import { Symptom } from './symptom.entity';
 export class SymptomsRepository extends Repository<Symptom> {
   // private logger = new Logger('TasksRepository', true);
 
-  async getSymptoms(filterDto: GetSymptomsFilterDto): Promise<Symptom[]> {
+  async getTasks(filterDto: GetSymptomsFilterDto): Promise<Symptom[]> {
     const { search } = filterDto;
 
     const query = this.createQueryBuilder('task');
@@ -39,7 +39,7 @@ export class SymptomsRepository extends Repository<Symptom> {
     // }
   }
 
-  async createSymptom(createSymptomDto: CreateSymptomDto): Promise<Symptom> {
+  async createTask(createSymptomDto: CreateSymptomDto): Promise<Symptom> {
     const { symptoms_name } = createSymptomDto;
 
     const symptom = this.create({

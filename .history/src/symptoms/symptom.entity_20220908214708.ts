@@ -11,7 +11,7 @@ export class Symptom {
     @Column()
     symptoms_name: string;
 
-    // @ManyToOne((_type) => User, (user) => user.symptoms, { eager: false })
-    // @Exclude({ toPlainOnly: true })
-    // user: User;
+    @ManyToOne((_type) => User, (user) => user.symptoms, { eager: false })
+    @Exclude({ toPlainOnly: true })
+    user: User;
 }

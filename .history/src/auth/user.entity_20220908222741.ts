@@ -17,6 +17,6 @@ export class User {
     // @Column()
     // email: string;
     
-    // @OneToMany((_type) => Symptom, (symptom) => symptom.user, { eager: true })
-    // symptoms: Symptom[];
+    @OneToMany((_type) => Symptom, (symptom) => symptom.user, { eager: true })
+    symptoms: Symptom[];
 }
