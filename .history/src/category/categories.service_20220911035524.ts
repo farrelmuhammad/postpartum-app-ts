@@ -5,7 +5,6 @@ import { CategoriesRepository } from "./categories.repository";
 import { Category } from "./category.entity";
 import { CreateCategoryDto } from "./dto/create-category.dto";
 import { GetCategoriesFilterDto } from "./dto/get-categories-filter.dto";
-import { UpdateCategoryDto } from "./dto/update-category.dto";
 
 export class CategoriesService {
     constructor(
@@ -47,11 +46,8 @@ export class CategoriesService {
 
     async updateCategory(
         id: string,
-        updateCategoryDto: UpdateCategoryDto,
     ): Promise<Category> {
         const category = await this.getCategoryById(id);
-
-        category.category_name
 
         await this.categoriesRepository.save(category);
 

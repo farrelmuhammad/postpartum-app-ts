@@ -52,10 +52,10 @@ export class CategoriesController {
 
     @Patch('/:id')
     updateCategory(
-        @Param('id') id: string,
+        @Param('id') id: number,
         @Body() updateCategoryDto: UpdateCategoryDto,
     ): Promise<Category> {
         // const { category_name } = updateCategoryDto;
-        return this.categoriesService.updateCategory(id, updateCategoryDto,);
+        return this.categoriesService.updateCategory({ id: id }, updateCategoryDto,);
     }
 }

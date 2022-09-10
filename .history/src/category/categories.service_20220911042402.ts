@@ -49,7 +49,7 @@ export class CategoriesService {
         id: string,
         updateCategoryDto: UpdateCategoryDto,
     ): Promise<Category> {
-        const category = await this.getCategoryById(id);
+        const category = await this.getCategoryById(id, updateCategoryDto);
 
         category.category_name
 

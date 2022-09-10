@@ -56,6 +56,6 @@ export class CategoriesController {
         @Body() updateCategoryDto: UpdateCategoryDto,
     ): Promise<Category> {
         // const { category_name } = updateCategoryDto;
-        return this.categoriesService.updateCategory(id, updateCategoryDto,);
+        return this.categoriesService.updateCategory(id, category_name);
     }
 }
