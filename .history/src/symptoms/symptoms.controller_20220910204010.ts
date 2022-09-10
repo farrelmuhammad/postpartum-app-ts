@@ -61,7 +61,7 @@ export class SymptomsController {
         return this.symptomsService.deleteSymptom(id);
     }
 
-    @Patch('/:id')
+    @Patch('/:id/status')
     updateSymptom(
         @Param('id') id: string,
         @Body() updateSymptomDto: UpdateSymptomDto,
