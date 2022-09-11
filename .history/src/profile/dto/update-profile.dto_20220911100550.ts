@@ -3,7 +3,7 @@ import { Type } from "class-transformer";
 import { IsEnum, IsNotEmpty } from "class-validator";
 import { ProfileGender, ProfileProfession, ProfileStudyLevel } from "../profile.enum";
 
-export class CreateProfileDto {
+export class UpdateProfileDto {
     @IsNotEmpty()
     id: number;
 

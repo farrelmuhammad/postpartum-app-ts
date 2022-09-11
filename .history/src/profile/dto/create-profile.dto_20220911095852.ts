@@ -1,41 +1,39 @@
 /* eslint-disable prettier/prettier */
 import { Type } from "class-transformer";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-import { ProfileGender, ProfileProfession, ProfileStudyLevel } from "./profile.enum";
+import { IsNotEmpty } from "class-validator";
+import { ProfileGender, ProfileProfession, ProfileStudyLevel } from "../profile.enum";
 
-@Entity()
 export class Profile {
-    @PrimaryGeneratedColumn()
+  @IsNotEmpty()
     id: number;
 
-    @Column()
+  @IsNotEmpty()
     name: string;
 
-    @Column()
+    @IsNotEmpty()
     address: string;
 
-    @Column()
+    @IsNotEmpty()
     city: string;
 
-    @Column()
+    @IsNotEmpty()
     province: string;
 
-    @Column()
+    @IsNotEmpty()
     phone: number;
 
-    @Column()
+    @IsNotEmpty()
     birht_place: string;
-
-    @Type(() => Date)
-    @Column('text')
+    
+    @IsNotEmpty()
     date: Date;
 
-    @Column()
+    @IsNotEmpty()
     gender: ProfileGender;
 
-    @Column()
+    @IsNotEmpty()
     profession: ProfileProfession;
 
-    @Column()
+    @IsNotEmpty()
     study_level: ProfileStudyLevel;
 }

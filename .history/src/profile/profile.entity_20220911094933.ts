@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Type } from "class-transformer";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-import { ProfileGender, ProfileProfession, ProfileStudyLevel } from "./profile.enum";
 
 @Entity()
 export class Profile {
@@ -31,11 +30,11 @@ export class Profile {
     date: Date;
 
     @Column()
-    gender: ProfileGender;
+    gender: string;
 
     @Column()
-    profession: ProfileProfession;
+    profession: string;
 
     @Column()
-    study_level: ProfileStudyLevel;
+    study_level: string;
 }
