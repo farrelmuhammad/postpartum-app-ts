@@ -19,7 +19,7 @@ export class CreateProfileDto {
     @IsNotEmpty()
     @MinLength(4)
     @MaxLength(20)
-    phone: string;
+    phone: number;
 
     @IsNotEmpty()
     birth_place: string;

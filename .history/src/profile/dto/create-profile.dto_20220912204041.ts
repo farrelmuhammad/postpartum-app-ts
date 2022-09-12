@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Type } from "class-transformer";
-import { IsEnum, IsNotEmpty, MaxLength, MinLength } from "class-validator";
+import { IsEnum, IsNotEmpty } from "class-validator";
 import { ProfileGender, ProfileProfession, ProfileStudyLevel } from "../profile.enum";
 
 export class CreateProfileDto {
@@ -17,17 +17,15 @@ export class CreateProfileDto {
     province: string;
 
     @IsNotEmpty()
-    @MinLength(4)
-    @MaxLength(20)
-    phone: string;
+    phone: number;
 
     @IsNotEmpty()
     birth_place: string;
 
     @IsNotEmpty()
     @Type(() => Date)
-    // @IsEnum(Date)
-    birth_date: Date;
+    @IsEnum(Date)
+    date: Date;
 
     @IsNotEmpty()
     gender: string;

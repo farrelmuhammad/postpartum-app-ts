@@ -3,7 +3,6 @@ import { Type } from "class-transformer";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { ProfileGender, ProfileProfession, ProfileStudyLevel } from "./profile.enum";
 
-@Entity()
 export class Profile {
     @PrimaryGeneratedColumn()
     id: number;
@@ -21,21 +20,21 @@ export class Profile {
     province: string;
 
     @Column()
-    phone: string;
+    phone: number;
 
     @Column()
     birth_place: string;
 
     @Type(() => Date)
     @Column('text')
-    birth_date: Date;
+    date: Date;
 
     @Column()
-    gender: string;
+    gender: ProfileGender;
 
     @Column()
-    profession: string;
+    profession: ProfileProfession;
 
     @Column()
-    study_level: string;
+    study_level: ProfileStudyLevel;
 }

@@ -21,7 +21,7 @@ export class Profile {
     province: string;
 
     @Column()
-    phone: string;
+    phone: number;
 
     @Column()
     birth_place: string;

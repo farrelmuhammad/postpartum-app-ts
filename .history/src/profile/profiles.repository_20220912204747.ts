@@ -48,10 +48,10 @@ export class ProfilesRepository extends Repository<Profile> {
             province,
             phone,
             birth_place,
-            birth_date,
-            gender,
-            profession,
-            study_level,
+            date,
+            // gender,
+            // profession,
+            // study_level,
         } = createProfileDto;
 
         const profile = this.create({
@@ -61,13 +61,13 @@ export class ProfilesRepository extends Repository<Profile> {
             province,
             phone,
             birth_place,
-            birth_date,
-            gender,
-            profession,
-            study_level,
-            // gender: ProfileGender.MALE,
-            // profession: ProfileProfession.IRT,
-            // study_level: ProfileStudyLevel.PENDIDIKAN_TINGGI,
+            date,
+            //   gender,
+            //   profession,
+            //   study_level,
+            gender: ProfileGender,
+            profession: ProfileProfession,
+            study_level: ProfileStudyLevel,
         });
 
         await this.save(profile);

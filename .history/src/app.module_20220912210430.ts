@@ -8,7 +8,6 @@ import { SymptomsModule } from './symptoms/symptoms.module';
 import { configValidationSchema } from './config.schema';
 import { CategoriesModule } from './category/categories.module';
 import { ProfilesModule } from './profile/profiles.module';
-import { SolutionsModule } from './solution/solutions.module';
 
 @Module({
   imports: [
@@ -19,7 +18,6 @@ import { SolutionsModule } from './solution/solutions.module';
     SymptomsModule,
     CategoriesModule,
     ProfilesModule,
-    SolutionsModule,
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
