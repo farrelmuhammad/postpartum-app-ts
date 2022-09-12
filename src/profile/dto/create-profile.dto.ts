@@ -5,9 +5,6 @@ import { ProfileGender, ProfileProfession, ProfileStudyLevel } from "../profile.
 
 export class CreateProfileDto {
     @IsNotEmpty()
-    id: number;
-
-    @IsNotEmpty()
     name: string;
 
     @IsNotEmpty()
@@ -23,7 +20,7 @@ export class CreateProfileDto {
     phone: number;
 
     @IsNotEmpty()
-    birht_place: string;
+    birth_place: string;
 
     @IsNotEmpty()
     @Type(() => Date)

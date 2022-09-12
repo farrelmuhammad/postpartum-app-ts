@@ -24,7 +24,7 @@ export class SymptomsService {
         const found = await this.symptomsRepository.findOne({ where: { id } });
 
         if (!found) {
-            throw new NotFoundException(`Task with ID "${id}" not found`);
+            throw new NotFoundException(`Symptom with ID "${id}" not found`);
         }
 
         return found;
@@ -43,7 +43,7 @@ export class SymptomsService {
         const result = await this.symptomsRepository.delete(id);
 
         if (result.affected === 0) {
-            throw new NotFoundException(`Task with ID "${id}" not found`);
+            throw new NotFoundException(`Symptom with ID "${id}" not found`);
         }
     }
 
@@ -52,7 +52,7 @@ export class SymptomsService {
     ): Promise<Symptom> {
         const symptom = await this.getSymptomById(id);
 
-        // task.status = status;
+        // Symptom.status = status;
         await this.symptomsRepository.save(symptom);
 
         return symptom;

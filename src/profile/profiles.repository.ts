@@ -1,29 +1,30 @@
 /* eslint-disable prettier/prettier */
 import { User } from 'src/auth/user.entity';
 import { EntityRepository, Repository } from 'typeorm';
+import { CreateProfileDto } from './dto/create-profile.dto';
 // import { CreateSymptomDto } from './dto/create-symptom.dto';
 import { GetProfilesFilterDto } from './dto/get-profiles-filter.dto';
 import { Profile } from './profile.entity';
+import { ProfileGender, ProfileProfession, ProfileStudyLevel } from './profile.enum';
 
 @EntityRepository(Profile)
 export class ProfilesRepository extends Repository<Profile> {
   // private logger = new Logger('TasksRepository', true);
 
-  async getSymptoms(filterDto: GetProfilesFilterDto): Promise<Symptom[]> {
+  async getProfiles(filterDto: GetProfilesFilterDto): Promise<Profile[]> {
     const { search } = filterDto;
 
     const query = this.createQueryBuilder('profile');
     // query.where({ user });
 
     if (search) {
-      query.andWhere(
-        '(LOWER(symptom.symptoms_name) LIKE LOWER(:search))',
-        { search: `%${search}%` },
-      );
+      query.andWhere('(LOWER(profile.name) LIKE LOWER(:search))', {
+        search: `%${search}%`,
+      });
     }
 
-    const symptoms = await query.getMany();
-    return symptoms;
+    const profiles = await query.getMany();
+    return profiles;
 
     // try {
     //   const tasks = await query.getMany();
@@ -39,15 +40,34 @@ export class ProfilesRepository extends Repository<Profile> {
     // }
   }
 
-  async createSymptom(createSymptomDto: CreateSymptomDto): Promise<Symptom> {
-    const { symptoms_name } = createSymptomDto;
+  async createProfiles(createProfileDto: CreateProfileDto): Promise<Profile> {
+    const {
+      name,
+      address,
+      city,
+      province,
+      phone,
+      birth_place,
+      date,
+      // gender,
+      // profession,
+      // study_level,
+    } = createProfileDto;
 
-    const symptom = this.create({
-      symptoms_name
+    const profile = this.create({
+      name,
+      address,
+      city,
+      province,
+      phone,
+      birth_place,
+      date,
+      gender: ProfileGender,
+      profession: ProfileProfession,
+      study_level: ProfileStudyLevel,
     });
 
-    await this.save(symptom);
-    return symptom;
+    await this.save(profile);
+    return profile;
   }
-
 }
