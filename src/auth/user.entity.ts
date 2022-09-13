@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
 // import { Task } from "src/tasks/task.entity";
+import { Profile } from "src/profile/profile.entity";
 import { Symptom } from "src/symptoms/symptom.entity";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class User {
@@ -17,6 +18,6 @@ export class User {
     // @Column()
     // email: string;
     
-    // @OneToMany((_type) => Symptom, (symptom) => symptom.user, { eager: true })
-    // symptoms: Symptom[];
+    @OneToMany((_type) => Profile, (profile) => profile.user, { eager: true })
+    profile: Profile[];
 }

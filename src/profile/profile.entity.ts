@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { Type } from "class-transformer";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Exclude, Type } from "class-transformer";
+import { User } from "src/auth/user.entity";
+import { Column, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { ProfileGender, ProfileProfession, ProfileStudyLevel } from "./profile.enum";
 
 @Entity()
@@ -38,4 +39,8 @@ export class Profile {
 
     @Column()
     study_level: string;
+
+    @ManyToOne((_type) => User, (user) => user.profile, { eager: false })
+    @Exclude({ toPlainOnly: true })
+    user: User;
 }

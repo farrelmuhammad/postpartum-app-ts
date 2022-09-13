@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-export enum TaskStatus {
+export enum UserRole {
     SuperAdmin = 'SuperAdmin',
     IsAdmin = 'IsAdmin',
     User = 'User',
