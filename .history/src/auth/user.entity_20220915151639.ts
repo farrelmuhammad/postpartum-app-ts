@@ -3,7 +3,6 @@
 import { Profile } from "src/profile/profile.entity";
 import { Symptom } from "src/symptoms/symptom.entity";
 import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
-import { UserRole } from "./user-role.enum";
 
 @Entity()
 export class User {

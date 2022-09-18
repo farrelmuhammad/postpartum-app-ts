@@ -38,7 +38,7 @@ export class SymptomsService {
     }
 
     async deleteSymptom(
-        id: number, 
+        id: string, 
         ): Promise<void> {
         const result = await this.symptomsRepository.delete(id);
 
