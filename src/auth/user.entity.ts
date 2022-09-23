@@ -18,6 +18,6 @@ export class User {
     // @Column()
     // email: string;
     
-    @OneToMany((_type) => Profile, (profile) => profile.user, { eager: true })
+    @OneToOne((_type) => Profile, (profile) => profile.user, { eager: true })
     profile: Profile[];
 }
