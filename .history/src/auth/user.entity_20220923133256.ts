@@ -16,8 +16,8 @@ export class User {
     @Column()
     password: string;
 
-    // @Column()
-    // role: UserRole;
+    @Column()
+    role: UserRole;
     
     @OneToOne((_type) => Profile, (profile) => profile.user)
     profile: Profile;
