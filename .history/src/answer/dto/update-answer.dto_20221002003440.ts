@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
 import { IsNotEmpty } from "class-validator";
 
-export class CreateAnswerDto {
+export class UpdateAnswerDto {
     @IsNotEmpty()
-    answer_name: string;
+    answer: string;
 
     @IsNotEmpty()
     answer_value: number;
