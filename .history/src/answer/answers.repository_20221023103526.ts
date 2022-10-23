@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { EntityRepository, Repository } from "typeorm";
 import { Answer } from "./answer.entity";
+import { CreateAnswerDto } from "./dto/create-answer.dto";
 import { GetAnswersFilterDto } from "./dto/get-answers-filter.dto";
 
 @EntityRepository(Answer)
@@ -19,5 +20,17 @@ export class AnswersRepository extends Repository<Answer> {
 
         const answers = await query.getMany();
         return answers;
+    }
+
+    async createAnswer(createAnswerDto: CreateAnswerDto): Promise<Answer> {
+        const { answer_name, CF_user } = createAnswerDto;
+
+        const answer = this.create({
+            answer_name,
+            CF_user
+        });
+
+        await this.save(answer);
+        return answer;
     }
 }

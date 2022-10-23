@@ -9,6 +9,6 @@ export class Answer {
     @Column()
     answer_name: string;
 
-    @Column({type: "numeric"})
+    @Column()
     CF_user: number;
 }

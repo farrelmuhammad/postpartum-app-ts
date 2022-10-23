@@ -3,5 +3,8 @@ import { IsNotEmpty } from "class-validator";
 
 export class CreateAnswerDto {
     @IsNotEmpty()
-    answer_value: number;
+    answer_name: string;
+
+    @IsNotEmpty()
+    CF_user: number;
 }

@@ -23,10 +23,11 @@ export class AnswersRepository extends Repository<Answer> {
     }
 
     async createAnswer(createAnswerDto: CreateAnswerDto): Promise<Answer> {
-        const { answer_value } = createAnswerDto;
+        const { answer_name, CF_user } = createAnswerDto;
 
         const answer = this.create({
-            answer_value
+            answer_name,
+            CF_user
         });
 
         await this.save(answer);
