@@ -6,5 +6,5 @@ export class CreateAnswerDto {
     answer_name: string;
 
     @IsNotEmpty()
-    CF_user: number;
+    answer_value: number;
 }

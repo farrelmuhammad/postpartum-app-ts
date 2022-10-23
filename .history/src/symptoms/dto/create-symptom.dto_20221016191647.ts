@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
 import { IsNotEmpty } from "class-validator";
 
-export class CreateAnswerDto {
+export class CreateSymptomDto {
     @IsNotEmpty()
-    answer_name: string;
+    symptoms_name: string;
 
     @IsNotEmpty()
     CF_user: number;

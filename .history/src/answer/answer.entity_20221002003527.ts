@@ -10,5 +10,5 @@ export class Answer {
     answer_name: string;
 
     @Column({ type: "decimal" })
-    CF_user: number;
+    answer_value: number;
 }

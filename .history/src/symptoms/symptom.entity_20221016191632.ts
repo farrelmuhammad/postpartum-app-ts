@@ -12,7 +12,7 @@ export class Symptom {
     symptoms_name: string;
 
     @Column({ type: "decimal" })
-    CF_symptom: number;
+    CF_user: number;
 
     // @ManyToOne((_type) => User, (user) => user.symptoms, { eager: false })
     // @Exclude({ toPlainOnly: true })

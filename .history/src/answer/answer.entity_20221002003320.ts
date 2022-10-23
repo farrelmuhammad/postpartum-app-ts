@@ -7,8 +7,8 @@ export class Answer {
     id: number;
 
     @Column()
-    answer_name: string;
+    answer: string;
 
     @Column({ type: "decimal" })
-    CF_user: number;
+    answer_value: number;
 }
