@@ -21,7 +21,7 @@ import { Symptom } from './symptom.entity';
 import { CreateSymptomDto } from './dto/create-symptom.dto';
 
 @Controller('symptoms')
-@UseGuards(AuthGuard())
+// @UseGuards(AuthGuard())
 export class SymptomsController {
     // private logger = new Logger('TasksController');
 

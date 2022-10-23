@@ -5,11 +5,14 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Symptom {
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
+    @PrimaryGeneratedColumn()
+    id: number;
 
     @Column()
     symptoms_name: string;
+
+    @Column({ type: "decimal" })
+    CF_symptom: number;
 
     // @ManyToOne((_type) => User, (user) => user.symptoms, { eager: false })
     // @Exclude({ toPlainOnly: true })

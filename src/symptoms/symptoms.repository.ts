@@ -39,10 +39,11 @@ export class SymptomsRepository extends Repository<Symptom> {
   }
 
   async createSymptom(createSymptomDto: CreateSymptomDto): Promise<Symptom> {
-    const { symptoms_name } = createSymptomDto;
+    const { symptoms_name, CF_symptom } = createSymptomDto;
 
     const symptom = this.create({
-      symptoms_name
+      symptoms_name,
+      CF_symptom
     });
 
     await this.save(symptom);

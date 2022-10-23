@@ -9,7 +9,7 @@ import { UpdateAnswerDto } from "./dto/update-answer.dto";
 
 
 @Controller('answers')
-@UseGuards(AuthGuard())
+// @UseGuards(AuthGuard())
 export class AnswersController {
     constructor(private answersService: AnswersService) {}
     

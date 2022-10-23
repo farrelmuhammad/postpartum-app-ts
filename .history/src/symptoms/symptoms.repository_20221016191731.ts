@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-import { User } from 'src/auth/user.entity';
 import { EntityRepository, Repository } from 'typeorm';
 import { CreateSymptomDto } from './dto/create-symptom.dto';
 import { GetSymptomsFilterDto } from './dto/get-symptoms-filter.dto';
@@ -9,10 +8,10 @@ import { Symptom } from './symptom.entity';
 export class SymptomsRepository extends Repository<Symptom> {
   // private logger = new Logger('TasksRepository', true);
 
-  async getTasks(filterDto: GetSymptomsFilterDto): Promise<Symptom[]> {
+  async getSymptoms(filterDto: GetSymptomsFilterDto): Promise<Symptom[]> {
     const { search } = filterDto;
 
-    const query = this.createQueryBuilder('task');
+    const query = this.createQueryBuilder('symptom');
     // query.where({ user });
 
     if (search) {
@@ -39,11 +38,12 @@ export class SymptomsRepository extends Repository<Symptom> {
     // }
   }
 
-  async createTask(createSymptomDto: CreateSymptomDto): Promise<Symptom> {
-    const { symptoms_name } = createSymptomDto;
+  async createSymptom(createSymptomDto: CreateSymptomDto): Promise<Symptom> {
+    const { symptoms_name, CF_symptom } = createSymptomDto;
 
     const symptom = this.create({
-      symptoms_name
+      symptoms_name,
+      CF_symptom
     });
 
     await this.save(symptom);

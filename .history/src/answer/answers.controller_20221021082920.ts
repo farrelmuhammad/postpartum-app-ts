@@ -1,11 +1,15 @@
 /* eslint-disable prettier/prettier */
-import { Body, Delete, Get, Param, Patch, Post, Query } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query, UseGuards } from "@nestjs/common";
+import { AuthGuard } from "@nestjs/passport";
 import { Answer } from "./answer.entity";
 import { AnswersService } from "./answers.service";
 import { CreateAnswerDto } from "./dto/create-answer.dto";
 import { GetAnswersFilterDto } from "./dto/get-answers-filter.dto";
 import { UpdateAnswerDto } from "./dto/update-answer.dto";
 
+
+@Controller('answers')
+// @UseGuards(AuthGuard())
 export class AnswersController {
     constructor(private answersService: AnswersService) {}
     
