@@ -19,5 +19,5 @@ export class User {
     // email: string;
     
     @OneToOne((_type) => Profile, (profile) => profile.user, { eager: true })
-    profile: Profile[];
+    profile: Profile;
 }
