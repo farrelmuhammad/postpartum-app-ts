@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 export enum UserRole {
     SUPERADMIN = 'SUPERADMIN',
-    ISADMIN = 'ISADMIN',
+    ADMIN = 'ADMIN',
     USER = 'USER',
   }
   

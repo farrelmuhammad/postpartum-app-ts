@@ -19,6 +19,7 @@ import { UpdateCategoryDto } from "./dto/update-category.dto";
 
 @Controller('category')
 @UseGuards(AuthGuard())
+// @UseGuards(RoleGuard())
 export class CategoriesController {
     constructor(private categoriesService: CategoriesService) { }
 
@@ -55,8 +56,7 @@ export class CategoriesController {
         @Param('id') id: string,
         @Body() updateCategoryDto: UpdateCategoryDto,
     ): Promise<Category> {
-        const { category_name } = updateCategoryDto;
-
-        return this.categoriesService.updateCategory(id, category_name);
+        // const { category_name } = updateCategoryDto;
+        return this.categoriesService.updateCategory(id, updateCategoryDto,);
     }
 }

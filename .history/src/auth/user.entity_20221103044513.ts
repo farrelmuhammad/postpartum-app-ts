@@ -16,7 +16,7 @@ export class User {
     @Column()
     password: string;
 
-    @Column({default: UserRole.USER})
+    @Column()
     role: UserRole;
     
     @OneToOne((_type) => Profile, (profile) => profile.user, { eager: true })
