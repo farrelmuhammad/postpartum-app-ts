@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { Type } from "class-transformer";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Exclude, Type } from "class-transformer";
+import { User } from "src/auth/user.entity";
+import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { ProfileGender, ProfileProfession, ProfileStudyLevel } from "./profile.enum";
 
 @Entity()
@@ -23,9 +24,6 @@ export class Profile {
     @Column()
     phone: string;
 
-    @Column()
-    birth_place: string;
-
     @Type(() => Date)
     @Column('text')
     birth_date: Date;
@@ -34,8 +32,9 @@ export class Profile {
     gender: string;
 
     @Column()
-    profession: string;
+    age: number;
 
-    @Column()
-    study_level: string;
+    @OneToOne((_type) => User, (user) => user.profile, { eager: false })
+    @JoinColumn()
+    user: User;
 }

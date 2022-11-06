@@ -45,7 +45,7 @@ export class SymptomsController {
     }
 
     @Post()
-    // @UseGuards(AuthGuard())
+    @UseGuards(AuthGuard())
     createSymptom(
         @Body() createSymptomDto: CreateSymptomDto,
     ): Promise<Symptom> {

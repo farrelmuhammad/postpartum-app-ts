@@ -1,18 +1,17 @@
 /* eslint-disable prettier/prettier */
-import { User } from 'src/auth/user.entity';
 import { EntityRepository, Repository } from 'typeorm';
-// import { CreateSymptomDto } from './dto/create-symptom.dto';
-import { GetProfilesFilterDto } from './dto/get-profiles-filter.dto';
-import { Profile } from './profile.entity';
+import { CreateSymptomDto } from './dto/create-symptom.dto';
+import { GetSymptomsFilterDto } from './dto/get-symptoms-filter.dto';
+import { Symptom } from './symptom.entity';
 
-@EntityRepository(Profile)
-export class ProfilesRepository extends Repository<Profile> {
+@EntityRepository(Symptom)
+export class SymptomsRepository extends Repository<Symptom> {
   // private logger = new Logger('TasksRepository', true);
 
-  async getSymptoms(filterDto: GetProfilesFilterDto): Promise<Symptom[]> {
+  async getSymptoms(filterDto: GetSymptomsFilterDto): Promise<Symptom[]> {
     const { search } = filterDto;
 
-    const query = this.createQueryBuilder('profile');
+    const query = this.createQueryBuilder('symptom');
     // query.where({ user });
 
     if (search) {
@@ -40,10 +39,13 @@ export class ProfilesRepository extends Repository<Profile> {
   }
 
   async createSymptom(createSymptomDto: CreateSymptomDto): Promise<Symptom> {
-    const { symptoms_name } = createSymptomDto;
+    const { symptoms_name, mb_baby, mb_major, mb_psychosis } = createSymptomDto;
 
     const symptom = this.create({
-      symptoms_name
+      symptoms_name,
+      mb_baby,
+      mb_major,
+      mb_psychosis
     });
 
     await this.save(symptom);

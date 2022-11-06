@@ -46,11 +46,9 @@ export class ProfilesRepository extends Repository<Profile> {
             city,
             province,
             phone,
-            birth_place,
+            age,
             birth_date,
             gender,
-            profession,
-            study_level,
         } = createProfileDto;
 
         const profile = this.create({
@@ -59,11 +57,9 @@ export class ProfilesRepository extends Repository<Profile> {
             city,
             province,
             phone,
-            birth_place,
+            age,
             birth_date,
             gender,
-            profession,
-            study_level,
             user
             // gender: ProfileGender.MALE,
             // profession: ProfileProfession.IRT,

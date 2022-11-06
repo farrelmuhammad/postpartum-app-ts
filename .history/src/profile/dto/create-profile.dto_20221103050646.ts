@@ -22,9 +22,6 @@ export class CreateProfileDto {
     phone: string;
 
     @IsNotEmpty()
-    birth_place: string;
-
-    @IsNotEmpty()
     @Type(() => Date)
     // @IsEnum(Date)
     birth_date: Date;
@@ -33,20 +30,5 @@ export class CreateProfileDto {
     gender: string;
 
     @IsNotEmpty()
-    profession: string;
-
-    @IsNotEmpty()
-    study_level: string;
-
-    // @IsNotEmpty()
-    // @IsEnum(ProfileGender)
-    // gender: ProfileGender;
-
-    // @IsNotEmpty()
-    // @IsEnum(ProfileProfession)
-    // profession: ProfileProfession;
-
-    // @IsNotEmpty()
-    // @IsEnum(ProfileStudyLevel)
-    // study_level: ProfileStudyLevel;
+    age: number;
 }

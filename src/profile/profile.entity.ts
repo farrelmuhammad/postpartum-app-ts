@@ -24,9 +24,6 @@ export class Profile {
     @Column()
     phone: string;
 
-    @Column()
-    birth_place: string;
-
     @Type(() => Date)
     @Column('text')
     birth_date: Date;
@@ -35,12 +32,9 @@ export class Profile {
     gender: string;
 
     @Column()
-    profession: string;
+    age: number;
 
-    @Column()
-    study_level: string;
-
-    @OneToOne((_type) => User, (user) => user.profile)
+    @OneToOne((_type) => User, (user) => user.profile, { eager: false })
     @JoinColumn()
     user: User;
 }
